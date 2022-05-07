@@ -1,4 +1,5 @@
-class AdminsProfiles::WelcomeController < ApplicationController
+class AdminsProfiles::WelcomeController < ProfilesBackofficeController
+ 
   def index
   end
 end
