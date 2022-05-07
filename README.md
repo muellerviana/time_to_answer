@@ -8,3 +8,14 @@
 Aula 124 
 
     - Instalar o Devise
+
+    criar model, view do devise
+
+
+aua 125 
+
+    - colocar gem i18n
+
+
+
+
