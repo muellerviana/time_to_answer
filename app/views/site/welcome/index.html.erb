@@ -1,2 +1,24 @@
 <h1>Site::Welcome#index</h1>
 <p>Find me in app/views/site/welcome/index.html.erb</p>
+
+
+<% if user_signed_in? %>
+
+<p> Usuário está logado <p>
+
+<%= current_user.email %>
+
+
+
+<% else %>
+
+<p> Usuário não está logado </p>
+
+<% end%>
+
+<br>
+<%= link_to "User page", users_backoffice_welcome_index_path %> 
+
+<br>
+
+<%= link_to "Admin page", admins_backoffice_welcome_index_path %> 
