@@ -4,9 +4,9 @@
 
 <% if user_signed_in? %>
 
-<p> Usuário está logado <p>
+<p> Usuário  <%= current_user.email %> está logado <p>
 
-<%= current_user.email %>
+
 
 
 
@@ -15,6 +15,24 @@
 <p> Usuário não está logado </p>
 
 <% end%>
+
+
+
+<% if admin_signed_in? %>
+
+<p> admin <%= current_user.email %> está logado <p>
+
+
+
+
+
+<% else %>
+
+<p> admin não está logado </p>
+
+<% end%>
+
+
 
 <br>
 <%= link_to "User page", users_backoffice_welcome_index_path %> 
