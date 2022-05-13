@@ -42,6 +42,7 @@ gem 'devise'
 
 gem 'i18n', '~> 1.8', '>= 1.8.2'
 gem 'tty-spinner'
+gem 'faker'
 
 
 group :development, :test do
