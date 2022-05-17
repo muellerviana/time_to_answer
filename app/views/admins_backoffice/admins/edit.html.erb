@@ -7,30 +7,45 @@
 
 <div class="panel-body">
         <div class="row">
+
+            <%if @admin.errors.any? %>
+                <div class="alert alert-danger alert-dismissable">
+                   
+
+
+                 <ul>
+                    <% @admin.errors.full_messages.each do |message|%>
+                    <li> <%= message%> </li>
+                    <% end %>
+                 </ul>
+        </div>
+
+
+            <% end %>
+
+
             <div class="col-lg-6">
                 <%= form_with(model:  [:admins_backoffice, @admin ], local: true) do |form|%>
                     <div class="form-group">
                         
                         <%= form.label :email %>
-                         <%= form.text_field :email, class:"form-control", placeholder:"Enter text"%>
+                         <%= form.text_field :email, class:"form-control", placeholder:"Email do administrador"%>
                     </div>
 
                     <div class="form-group">
                        
                         <%= form.label :password %>
-                         <%= form.text_field :password, class:"form-control", placeholder:"Enter text"%>
+                         <%= form.text_field :password, class:"form-control", placeholder:"Senha"%>
                     </div>
 
                     <div class="form-group">
                       
                         <%= form.label :password_confirmation %>
-                         <%= form.text_field :password, class:"form-control", placeholder:"Enter text"%>
+                         <%= form.text_field :password, class:"form-control", placeholder:"Confirmação da senha"%>
                     </div>
                     
                     <button type="submit" class="btn btn-default">Salvar alterações</button>
                            
                 <% end %>
             </div>
-
-        </div>
-    </div>
+</div>
