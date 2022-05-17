@@ -6,14 +6,24 @@ before_action :set_admin, only: [:edit, :update]
     @admins = Admin.all
   end
 
+  def new
+    @admin = Admin.new
+  end
 
+  def create 
+    @admin = Admin.new(params_admin)
+    if @admin.save
+      redirect_to admins_backoffice_admins_path, notice: "Administrador cadastrado com sucesso"
+    else
+      render :new
+    end
+  end
+    
   def edit
   end
 
   def update
     
-    @admin = 
-  
     if @admin.update(params_admin)
       redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso"
     else
@@ -23,14 +33,16 @@ before_action :set_admin, only: [:edit, :update]
   
   private
 
-  def params_admin
-    Admin.find(params[:id])
-    params_admin = params.require(:admin).permit(:email, :password, :password_confirmation)
-  end
+
 
   def set_admin
     @admin = Admin.find(params[:id])
   end 
+  
+  def params_admin
+   
+    params_admin = params.require(:admin).permit(:email, :password, :password_confirmation)
+  end
 
   def  verify_password
     if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
