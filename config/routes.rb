@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   namespace :admins_backoffice do
-    resources :admins, except: [:delete]
+    resources :admins
   end
   namespace :site do
     get 'welcome/index'
