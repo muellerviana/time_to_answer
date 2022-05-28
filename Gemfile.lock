@@ -137,6 +137,7 @@ GEM
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    railroady (1.6.0)
     rails (5.2.7.1)
       actioncable (= 5.2.7.1)
       actionmailer (= 5.2.7.1)
@@ -239,6 +240,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
   puma (~> 3.11)
+  railroady
   rails (~> 5.2.7, >= 5.2.7.1)
   sass-rails (~> 5.0)
   selenium-webdriver
