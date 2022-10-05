@@ -34,7 +34,6 @@ namespace :dev do
     )
   end
 
-
   #Add extras admins
 
   desc "Add default Admin"
@@ -46,7 +45,6 @@ namespace :dev do
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD
     )
-
     end
   end
 
@@ -79,14 +77,26 @@ namespace :dev do
   task add_answers_and_questions: :environment do
     Subject.all.each do |subject|
       rand(5..10).times do |i|
-        Question.create!(
+        params = { question: {
           description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject)
+          subject: subject,
+          answers_attributes: []
+        }}
+
+        
+        rand(2..5).times do |i|
+          params[:question][:answers_attributes].push(
+            { description: Faker::Lorem.sentence, correct: false}
+          )
+        end
+
+        index = rand(params[:question][:answers_attributes].size)
+        params[:question][:answers_attributes][index] = { description: Faker::Lorem.sentence, correct: true }
+                
+        Question.create!(params[:question])
       end
     end
   end
-
-
 
   private
 
@@ -97,5 +107,4 @@ namespace :dev do
     yield
     spinner.success("(#{msg_end})")
   end
-
 end
