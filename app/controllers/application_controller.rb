@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   
   private
     def layout_by_resource
-      if devise_controller? && resource_class == Admin
-        "admin_devise"
-      else
-        "application"
-      end
+      devise_controller? ? "#{resource_class.to_s.downcase}_devise" : "application"
     end
 end
