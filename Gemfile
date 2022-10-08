@@ -64,6 +64,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print', '~> 1.8'
   gem 'rails_db', '2.3.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do

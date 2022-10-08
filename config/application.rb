@@ -31,5 +31,8 @@ module App
   
     # Don't generate system test files.
     config.generators.system_tests =nil
+
+    # Allow web console for docker
+    config.web_console.whitelisted_ips = '172.21.0.1'
   end
 end
